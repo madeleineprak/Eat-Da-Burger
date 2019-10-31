@@ -1,30 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/hk-grotesk" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Francois+One&display=swap" rel="stylesheet">
-		<link rel="stylesheet" href="/public/assets/css/burger_style.css" type="text/html" />
-		<title>Burgers Queen</title>
-	</head>
-	<body>
-		{{{ body }}}
-
-        <script src="https://code.jquery.com/jquery.js"></script>
-		{{!-- <script src="/public/assets/js/burgers.js"></script> --}}
-        <script>
-            // Make sure we wait to attach our handlers until the DOM is fully loaded.
+// Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(function() {
     $(".devour-button").on("click", function(event) {
         console.log("Eaten?");
       var id = $(this).data("id");
-      console.log(id);
       var newDevour = $(this).data("devoured");
-        console.log(newDevour);
+  
       var newDevourState = {
         devoured: newDevour
       };
@@ -80,6 +60,3 @@ $(function() {
     });
   });
   
-        </script>
-	</body>
-</html>

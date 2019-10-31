@@ -9,16 +9,16 @@ var burger = {
             cb(results);
         });
     },
-    addBurger: function(burger, cb) {
-        orm.insertOne(burger, function(results) {
+    addBurger: function(burgerName, cb) {
+        orm.insertOne(burgerName, function(results) {
+            cb(results);
+        });
+    },
+    editBurger: function(burgerId, cb) {
+        orm.updateOne(burgerId, function(results) {
             cb(results);
         });
     }
-    // editBurger: function(res) {
-    //     orm.updateOne(function(results) {
-    //         res.json(results);
-    //     });
-    // }
 }
 
 module.exports = burger;

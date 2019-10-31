@@ -11,20 +11,20 @@ var orm = {
             cb(result);
         });
     },
-    addOne: function(burger, cb) {
+    addOne: function(burgerName, cb) {
         var queryString = "INSERT INTO ?? (burger_name) VALUES (?)";
-        burger.devoured = burger.devoured || 0;
-        connection.query(queryString, [table, burger], function(err, result) {
+        // burger.devoured = burger.devoured || 0;
+        connection.query(queryString, [table, burgerName], function(err, result) {
             if (err) throw err;
             cb(result);
         });
+    },
+    updateOne: function(burgerId, cb) {
+        var queryString = "UPDATE ?? SET devoured=? WHERE id=?";
+        connection.query(queryString, [table, 1, burgerId], function(err, result) {
+            if (err) throw err;
+            cb(result);
+        })
     }
-    // updateOne: function(burger) {
-    //     var queryString = "UPDATE ?? SET devoured=? WHERE id=?";
-    //     connection.query(queryString, [table, 1, burger.id], function(err, result) {
-    //         if (err) throw err;
-    //         console.log(result);
-    //     })
-    // }
 }
 module.exports = orm;
