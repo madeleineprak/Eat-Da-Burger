@@ -4,21 +4,21 @@ var orm = require("../config/orm.js");
 //     app.get
 // }
 var burger = {
-    displayAll: function() {
+    displayAll: function(cb) {
         orm.selectAll(function(results) {
-            res.json(results);
+            cb(results);
         });
     },
-    addBurger: function() {
-        orm.insertOne(function(results) {
-            res.json(results);
-        });
-    },
-    editBurger: function() {
-        orm.updateOne(function(results) {
-            res.json(results);
+    addBurger: function(burger, cb) {
+        orm.insertOne(burger, function(results) {
+            cb(results);
         });
     }
+    // editBurger: function(res) {
+    //     orm.updateOne(function(results) {
+    //         res.json(results);
+    //     });
+    // }
 }
 
 module.exports = burger;

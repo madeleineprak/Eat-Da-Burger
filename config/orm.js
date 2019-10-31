@@ -3,26 +3,28 @@ var connection = require("../config/connection.js");
 var table = "burgers";
 
 var orm = {
-    selectAll: function(callback) {
+    selectAll: function(cb) {
         var queryString = "SELECT * FROM ??";
-        connection.query(queryString, [table], function(err, result) {
+        connection.query(queryString, table, function(err, result) {
             if (err) throw err;
-            callback(result);
+            console.log("display all ran");
+            cb(result);
         });
     },
-    insertOne: function(burger, callback) {
-        var queryString = "INSERT INTO " + table + " (burger_name) VALUES (?)";
-        connection.query(queryString, [burger.burger_name], function(err, result) {
+    addOne: function(burger, cb) {
+        var queryString = "INSERT INTO ?? (burger_name) VALUES (?)";
+        burger.devoured = burger.devoured || 0;
+        connection.query(queryString, [table, burger], function(err, result) {
             if (err) throw err;
-            callback(result);
+            cb(result);
         });
-    },
-    updateOne: function(burger, callback) {
-        var queryString = "UPDATE " + table + " SET devoured=? WHERE id=?";
-        connection.query(queryString, [0, burger.id], function(err, result) {
-            if (err) throw err;
-            callback(result);
-        })
     }
+    // updateOne: function(burger) {
+    //     var queryString = "UPDATE ?? SET devoured=? WHERE id=?";
+    //     connection.query(queryString, [table, 1, burger.id], function(err, result) {
+    //         if (err) throw err;
+    //         console.log(result);
+    //     })
+    // }
 }
 module.exports = orm;

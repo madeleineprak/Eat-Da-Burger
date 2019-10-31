@@ -1,24 +1,53 @@
-<h1>Burgers!</h1>
+<h1>Burger Queen</h1>
 
-<h2>Burgers Not Devoured</h2>
+<h2>Bon Apetit</h2>
 
-<ul>
+{{!-- <ul>
+  {{ burgers[0].burger_name}}
+</ul> --}}
+
+<ul id="burgers-uneaten" style="list-style-type: none;">
   {{#each burgers}}
-    {{!-- {{#unless devoured}}
-      {{> cats/cat-block devoured=true}}
-    {{/unless}} --}}
+  {{#unless this.devoured }}
+    <li class="burger" style="margin-bottom:10px;">
+        <span>
+            <button type="button" class="btn btn-dark change-devour" data-id="{{id}}" data-devoured="{{devoured}}">Eat Me</button>
+            {{burger_name}}
+        </span>
+	
+	{{!-- <button data-id="{{id}}">
+		{{#if sleep}}SLEEP TIME!{{else}}WAKE UP!{{/if}}
+	</button>
+
+	<button data-id="{{this.id}}">DELETE!</button> --}}
+</li>
+{{/unless}}
   {{/each}}
 </ul>
+
+{{!-- <p>{{lunch}}</p> --}}
 
 <h2>Burgers Devoured</h2>
 
-<ul>
+<ul id="burgers-eaten" style="list-style-type: none;">
   {{#each burgers}}
-    {{!-- {{#if sleepy}}
-      {{> cats/cat-block sleep=false}}
-    {{/if}} --}}
+  {{#if this.devoured }}
+    <li class="burger" style="margin-bottom:10px;">
+        <span>
+            <button type="button delete-burger" class="btn btn-dark" data-id="{{id}}">Throw Out</button>
+            {{burger_name}}
+        </span>
+	
+	{{!-- <button data-id="{{id}}">
+		{{#if sleep}}SLEEP TIME!{{else}}WAKE UP!{{/if}}
+	</button>
+
+	<button data-id="{{this.id}}">DELETE!</button> --}}
+</li>
+{{/if}}
   {{/each}}
 </ul>
+
 
 {{!-- <h2>Add a Cat</h2>
 <form class="create-form">
