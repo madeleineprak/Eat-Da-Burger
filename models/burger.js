@@ -10,12 +10,17 @@ var burger = {
         });
     },
     addBurger: function(burgerName, cb) {
-        orm.insertOne(burgerName, function(results) {
+        orm.addOne(burgerName, function(results) {
             cb(results);
         });
     },
     editBurger: function(burgerId, cb) {
         orm.updateOne(burgerId, function(results) {
+            cb(results);
+        });
+    },
+    deleteBurger: function(burgerId, cb) {
+        orm.deleteOne(burgerId, function(results) {
             cb(results);
         });
     }
