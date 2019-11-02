@@ -1,7 +1,7 @@
 <h1><i class="fas fa-crown"></i> Burger Queen</h1>
 <div class="container">
-  <div class="row burger-display rounded shadow">
-    <div class="col-6">
+  <div class="row">
+    <div class="col-6 burger-display rounded shadow">
       {{!-- Display uneaten burgers --}}
       <h2>Eat</h2>
       <ul id="burgers-uneaten" style="list-style-type: none;">
@@ -18,9 +18,7 @@
         {{/each}}
       </ul>
     </div>
-  </div>
-  <div class="row burgers-eaten rounded shadow">
-    <div class="col-6">
+    <div class="col-6 burgers-eaten rounded shadow">
       {{!-- Display eaten burgers --}}
       <h2>Devoured</h2>
       <ul id="burgers-eaten" style="list-style-type: none;">

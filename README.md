@@ -16,6 +16,7 @@ You can eat any burger you want by clicking the "Eat" button next to it which wi
 The app stores the burgers in a database and each time the user clicks either the eat or delete button, it manipulates the database which then is reflected on the page. 
 
 ### App View
+![burgerqueen](https://user-images.githubusercontent.com/26778117/68065608-1b78ec80-fce9-11e9-86a0-9da02d64048c.png)
 
 
 ## Author(s)
