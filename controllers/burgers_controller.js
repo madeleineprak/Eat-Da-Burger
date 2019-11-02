@@ -3,13 +3,18 @@ var burger = require("../models/burger.js");
 
 var router = express.Router();
 
+
 router.get("/", function(req, res) {
+    res.redirect("/burgers");
+});
+
+router.get("/burgers", function(req, res) {
     burger.displayAll(function(data) {
         var burgersObject = {
             burgers: data
         };
-        console.log("hbs object");
-        console.log(burgersObject);
+        // console.log("hbs object");
+        // console.log(burgersObject);
         res.render("index", burgersObject);
     });
     
@@ -17,11 +22,11 @@ router.get("/", function(req, res) {
 });
 
 router.post("/api/burgers", function(req, res) {
-    console.log(req.body.name);
+    // console.log(req.body.name);
     burger.addBurger([
         req.body.name
     ], function(result) {
-        console.log(req.body.name);
+        // console.log(req.body.name);
         res.redirect("/");
     });
 });
