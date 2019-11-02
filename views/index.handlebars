@@ -1,42 +1,54 @@
-<h1>Burger Queen</h1>
-
-{{!-- Display uneaten burgers --}}
-<h2>Bon Apetit</h2>
-<ul id="burgers-uneaten" style="list-style-type: none;">
-  {{#each burgers}}
-  {{#unless this.devoured }}
-  <li class="burger" style="margin-bottom:10px;">
-    <span>
-      <button type="button" class="btn btn-dark devour-button" data-id="{{id}}" data-devoured="{{devoured}}">Eat
-        Me</button>
-      {{burger_name}}
-    </span>
-  </li>
-  {{/unless}}
-  {{/each}}
-</ul>
-
-{{!-- Display eaten burgers --}}
-<h2>Burgers Devoured</h2>
-<ul id="burgers-eaten" style="list-style-type: none;">
-  {{#each burgers}}
-  {{#if this.devoured }}
-  <li class="burger" style="margin-bottom:10px;">
-    <span>
-      <button type="button" class="btn btn-dark delete-button" data-id="{{id}}">Throw Out</button>
-      {{burger_name}}
-    </span>
-  </li>
-  {{/if}}
-  {{/each}}
-</ul>
-
-{{!-- Allows user to add a burger --}}
-<h2>Any Requests?</h2>
-<form class="create-form">
-  <div class="form-group">
-    <label for="name">Burger Name:</label>
-    <span><input type="text" id="name-input" name="name"><button type="submit" id="add-button"
-        class="btn btn-dark">Add</button></span>
+<h1><i class="fas fa-crown"></i> Burger Queen</h1>
+<div class="container">
+  <div class="row burger-display rounded shadow">
+    <div class="col-6">
+      {{!-- Display uneaten burgers --}}
+      <h2>Eat</h2>
+      <ul id="burgers-uneaten" style="list-style-type: none;">
+        {{#each burgers}}
+        {{#unless this.devoured }}
+        <li class="burger" style="margin-bottom:10px;">
+          <span>
+            <button type="button" class="btn btn-dark devour-button" data-id="{{id}}" data-devoured="{{devoured}}"><i
+                class="fas fa-utensils"></i></button>
+            {{burger_name}}
+          </span>
+        </li>
+        {{/unless}}
+        {{/each}}
+      </ul>
+    </div>
   </div>
-</form>
+  <div class="row burgers-eaten rounded shadow">
+    <div class="col-6">
+      {{!-- Display eaten burgers --}}
+      <h2>Devoured</h2>
+      <ul id="burgers-eaten" style="list-style-type: none;">
+        {{#each burgers}}
+        {{#if this.devoured }}
+        <li class="burger" style="margin-bottom:10px;">
+          <span>
+            <button type="button" class="btn btn-dark delete-button" data-id="{{id}}"><i
+                class="fas fa-trash-alt"></i></button>
+            {{burger_name}}
+          </span>
+        </li>
+        {{/if}}
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+  <div class="row burger-form rounded shadow">
+    <div class="col-12 text-center">
+      {{!-- Allows user to add a burger --}}
+      <h2>Order</h2>
+      <form class="create-form">
+        <div class="form-group">
+          <label for="name"></label>
+          <span><input type="text" id="name-input" name="name"><button type="submit" id="add-button"
+              class="btn btn-dark"><i class="fas fa-plus"></i></button></span>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

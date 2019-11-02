@@ -1,6 +1,45 @@
+html, body {
+    width:100%;
+    margin:0;
+    height:100%;
+}
+
 body {
-      font-family: "HKGroteskRegular", Roboto, sans-serif;
-    }
-    #add-button {
-      margin-left: 10px;
-    }
+    font-family: "HKGroteskRegular", Roboto, sans-serif;
+    background-color: lightpink;
+}
+
+h1 {
+    font-family: 'BananaBrickRegular';
+    font-weight: normal;
+    font-style: normal;
+    text-align: center;
+    font-size: 4rem;
+    color: white;
+    text-shadow:
+		-3px -3px 0 palevioletred,
+		3px -3px 0 palevioletred,
+		-3px 3px 0 palevioletred,
+		3px 3px 0 palevioletred;
+}
+
+h2 {
+    margin-bottom: 30px;
+}
+
+.fa-crown {
+    color: gold;
+}
+
+#add-button {
+    margin-left: 10px;
+}
+
+.burger-display, .burgers-eaten, .burger-form {
+    margin-top: 3rem;
+    background-color: white;
+    padding: 30px;
+    border-left-color: palevioletred;
+    border-left-style: solid;
+    border-left-width: 20px;
+}
