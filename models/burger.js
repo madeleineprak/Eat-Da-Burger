@@ -1,8 +1,5 @@
 var orm = require("../config/orm.js");
 
-// module.exports = function(app) {
-//     app.get
-// }
 var burger = {
     displayAll: function(cb) {
         orm.selectAll(function(results) {

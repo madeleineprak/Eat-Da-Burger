@@ -1,61 +1,42 @@
 <h1>Burger Queen</h1>
 
+{{!-- Display uneaten burgers --}}
 <h2>Bon Apetit</h2>
-
-{{!-- <ul>
-  {{ burgers[0].burger_name}}
-</ul> --}}
-
 <ul id="burgers-uneaten" style="list-style-type: none;">
   {{#each burgers}}
   {{#unless this.devoured }}
-    <li class="burger" style="margin-bottom:10px;">
-        <span>
-            <button type="button" class="btn btn-dark devour-button" data-id="{{id}}" data-devoured="{{devoured}}">Eat Me</button>
-            {{burger_name}}
-        </span>
-	
-	{{!-- <button data-id="{{id}}">
-		{{#if sleep}}SLEEP TIME!{{else}}WAKE UP!{{/if}}
-	</button>
-
-	<button data-id="{{this.id}}">DELETE!</button> --}}
-</li>
-{{/unless}}
+  <li class="burger" style="margin-bottom:10px;">
+    <span>
+      <button type="button" class="btn btn-dark devour-button" data-id="{{id}}" data-devoured="{{devoured}}">Eat
+        Me</button>
+      {{burger_name}}
+    </span>
+  </li>
+  {{/unless}}
   {{/each}}
 </ul>
 
-{{!-- <p>{{lunch}}</p> --}}
-
+{{!-- Display eaten burgers --}}
 <h2>Burgers Devoured</h2>
-
 <ul id="burgers-eaten" style="list-style-type: none;">
   {{#each burgers}}
   {{#if this.devoured }}
-    <li class="burger" style="margin-bottom:10px;">
-        <span>
-            <button type="button" class="btn btn-dark delete-button" data-id="{{id}}">Throw Out</button>
-            {{burger_name}}
-        </span>
-	
-	{{!-- <button data-id="{{id}}">
-		{{#if sleep}}SLEEP TIME!{{else}}WAKE UP!{{/if}}
-	</button>
-
-	<button data-id="{{this.id}}">DELETE!</button> --}}
-</li>
-{{/if}}
+  <li class="burger" style="margin-bottom:10px;">
+    <span>
+      <button type="button" class="btn btn-dark delete-button" data-id="{{id}}">Throw Out</button>
+      {{burger_name}}
+    </span>
+  </li>
+  {{/if}}
   {{/each}}
 </ul>
 
-
+{{!-- Allows user to add a burger --}}
 <h2>Any Requests?</h2>
 <form class="create-form">
-
   <div class="form-group">
     <label for="name">Burger Name:</label>
-    <span><input type="text" id="name-input" name="name"><button type="submit" id="add-button" class="btn btn-dark">Add</button></span>
+    <span><input type="text" id="name-input" name="name"><button type="submit" id="add-button"
+        class="btn btn-dark">Add</button></span>
   </div>
-
-  
 </form>

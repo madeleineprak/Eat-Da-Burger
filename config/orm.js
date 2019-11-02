@@ -7,7 +7,6 @@ var orm = {
         var queryString = "SELECT * FROM ??";
         connection.query(queryString, table, function(err, result) {
             if (err) throw err;
-            console.log("display all ran");
             cb(result);
         });
     },
@@ -34,4 +33,5 @@ var orm = {
         })
     }
 }
+
 module.exports = orm;

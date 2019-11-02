@@ -1,92 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/hk-grotesk" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Francois+One&display=swap" rel="stylesheet">
-		<link rel="stylesheet" href="/public/assets/css/burger_style.css" type="text/html" />
-		<title>Burgers Queen</title>
-    <style>
-      body {
-    font-family: "HKGroteskRegular", Roboto, sans-serif;
-      }
-      #add-button {
-        margin-left: 10px;
-      }
-    </style>
-	</head>
-	<body>
-		{{{ body }}}
 
-        <script src="https://code.jquery.com/jquery.js"></script>
-		{{!-- <script src="/public/assets/js/burgers.js"></script> --}}
-        <script>
-            // Make sure we wait to attach our handlers until the DOM is fully loaded.
-$(function() {
-    $(".devour-button").on("click", function(event) {
-        console.log("Eaten?");
-      var id = $(this).data("id");
-      console.log(id);
-      var newDevour = $(this).data("devoured");
-        console.log(newDevour);
-      var newDevourState = {
-        devoured: newDevour
-      };
-  
-      // Send the PUT request.
-      $.ajax("/api/burgers/" + id, {
-        type: "PUT",
-        data: newDevourState
-      }).then(
-        function() {
-          console.log("changed devoured to", newDevour);
-          // Reload the page to get the updated list
-          location.reload();
-        }
-      );
-    });
-  
-    $(".create-form").on("submit", function(event) {
-      // Make sure to preventDefault on a submit event.
-      event.preventDefault();
-  
-      var newBurger = {
-        name: $("#name-input").val().trim()
-      };
-  
-      // Send the POST request.
-      $.ajax("/api/burgers", {
-        type: "POST",
-        data: newBurger
-      }).then(
-        function() {
-          console.log("created new burger");
-          // Reload the page to get the updated list
-          location.reload();
-        }
-      );
-    });
-  
-    $(".delete-button").on("click", function(event) {
-      var id = $(this).data("id");
-  
-      // Send the DELETE request.
-      $.ajax("/api/burgers/" + id, {
-        type: "DELETE"
-      }).then(
-        function() {
-          console.log("deleted burger", id);
-          // Reload the page to get the updated list
-          location.reload();
-        }
-      );
-    });
-  });
-  
-        </script>
-	</body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/hk-grotesk" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Francois+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/burger_style.css" type="text/css"/>
+  <title>Burgers Queen</title>
+</head>
+
+<body>
+  {{{ body }}}
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="/assets/js/burgers.js"></script>
+</body>
 </html>

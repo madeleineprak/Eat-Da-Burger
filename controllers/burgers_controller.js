@@ -1,6 +1,5 @@
 var express = require("express");
 var burger = require("../models/burger.js");
-
 var router = express.Router();
 
 router.get("/", function(req, res) {
@@ -8,20 +7,14 @@ router.get("/", function(req, res) {
         var burgersObject = {
             burgers: data
         };
-        // console.log("hbs object");
-        // console.log(burgersObject);
         res.render("index", burgersObject);
     });
-    
-    // burger.displayAll(res)
 });
 
 router.post("/api/burgers", function(req, res) {
-    // console.log(req.body.name);
     burger.addBurger([
         req.body.name
     ], function(result) {
-        // console.log(req.body.name);
         res.redirect("/");
     });
 });
