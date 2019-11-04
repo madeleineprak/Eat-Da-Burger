@@ -1,7 +1,7 @@
 <h1><i class="fas fa-crown"></i> Burger Queen</h1>
 <div class="container">
   <div class="row">
-    <div class="col-6 burger-display rounded shadow">
+    <div class="col-12 col-md-6 burger-display rounded shadow">
       {{!-- Display uneaten burgers --}}
       <h2>Eat</h2>
       <ul id="burgers-uneaten" style="list-style-type: none;">
@@ -18,7 +18,7 @@
         {{/each}}
       </ul>
     </div>
-    <div class="col-6 burgers-eaten rounded shadow">
+    <div class="col-12 col-md-6 burgers-eaten rounded shadow">
       {{!-- Display eaten burgers --}}
       <h2>Ate</h2>
       <ul id="burgers-eaten" style="list-style-type: none;">
@@ -37,13 +37,13 @@
     </div>
   </div>
   <div class="row burger-form rounded shadow">
-    <div class="col-12 text-center">
+    <div class="col-12 col-md-12 text-center">
       {{!-- Allows user to add a burger --}}
       <h2>Order</h2>
       <form class="create-form">
         <div class="form-group">
           <label for="name"></label>
-          <span><input type="text" id="name-input" name="name" required><button type="submit" id="add-button"
+          <span><input type="text" id="name-input" name="name" placeholder="Burger Name" required><button type="submit" id="add-button"
             class="btn btn-dark"><i class="fas fa-plus"></i></button></span>
         </div>
       </form>

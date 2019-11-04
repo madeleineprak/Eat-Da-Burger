@@ -42,10 +42,13 @@ h2 {
     border-left-color: palevioletred;
     border-left-style: solid;
     border-left-width: 20px;
-}
-
-.burgers-eaten, .burger-form {
     border-right-color: palevioletred;
     border-right-style: solid;
     border-right-width: 20px;
 }
+
+/* .burgers-eaten, .burger-form {
+    border-right-color: palevioletred;
+    border-right-style: solid;
+    border-right-width: 20px;
+} */
