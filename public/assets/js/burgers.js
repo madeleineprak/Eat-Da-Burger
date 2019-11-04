@@ -1,4 +1,6 @@
 $(function () {
+  var formIsValid = false;
+
   // "Eats" the burger
   $(".devour-button").on("click", function (event) {
     console.log("Eaten?");
@@ -22,10 +24,20 @@ $(function () {
     );
   });
 
-  // Adds new burger
-  $(".create-form").on("submit", function (event) {
-    // Make sure to preventDefault on a submit event.
-    event.preventDefault();
+  // Check form validity
+  function checkFormValidity() {
+    var burgerName = $("#name-input").val().trim();
+    if (burgerName == "") {
+      $("#name-input").addClass("is-invalid");
+      formIsValid = false;
+    } else {
+      $("#name-input").removeClass("is-invalid").addClass("is-valid");
+      formIsValid = true;
+    }
+  }
+
+  // Submits a valid form
+  function submitForm() {
     var newBurger = {
       name: $("#name-input").val().trim()
     };
@@ -40,6 +52,16 @@ $(function () {
         location.reload();
       }
     );
+  }
+
+  // Adds new burger if valid
+  $(".create-form").on("submit", function (event) {
+    // Make sure to preventDefault on a submit event.
+    event.preventDefault();
+    checkFormValidity();
+    if(formIsValid) {
+      submitForm();
+    }
   });
 
   // Deletes eaten burger
