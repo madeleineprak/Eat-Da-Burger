@@ -1,6 +1,6 @@
 # Burger-Queen
 
-This is an app where you can eat all the burgers you want in the world without gaining a single pound. Enjoy!
+This is an app where you can eat all the burgers you want in the world without gaining a single pound. Enjoy it [here](https://burgerqueen-devmad.herokuapp.com/)!
 
 ## Tools Utilized
 * Express
